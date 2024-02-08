@@ -20,6 +20,21 @@ Usage:
 NOTE: Always run this script with privileged permissions (currently not)
 ```
 
+
+## Some useful commands
+
+- `ps` of processes
+
+```sh
+sudo ip netns pids $netns_name | xargs ps
+```
+
+- run firefox
+
+```sh
+./split-vpn-manager.sh run $netns_name firefox -P $profile --new-session
+```
+
 ## Exit codes
 
 ```
