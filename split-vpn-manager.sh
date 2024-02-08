@@ -140,6 +140,10 @@ run() {
     exit $EXIT_SUCCESS
 }
 
+inspect() {
+    run $1 ss -tup
+}
+
 help() {
     echo "Usage:"
     echo "  $0 launch_openvpn --name NETNS_NAME --config CONFIG_FILE --auth AUTH_FILE"
@@ -147,6 +151,9 @@ help() {
     echo ""
     echo "  $0 run NETNS_NAME CMD"
     echo "      runs a command in the specified net namespace"
+    echo ""
+    echo "  $0 inspect NETNS_NAME"
+    echo "      list all processes using TCP/UDP sockets inside the specified net namespace"
     echo ""
 
     user_id="$(id -u)"
@@ -168,6 +175,8 @@ case "$command" in
         down_netns "$@";;
     run)
         run "$@";;
+    inspect)
+        inspect "$@";;
     help|--help)
         help;;
     *)

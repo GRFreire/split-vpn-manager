@@ -14,6 +14,9 @@ Usage:
   ./split-vpn-manager.sh run NETNS_NAME CMD
       runs a command in the specified net namespace
 
+  ./split-vpn-manager.sh inspect NETNS_NAME
+      list all processes using TCP/UDP sockets inside the specified net namespace
+
 NOTE: Always run this script with privileged permissions (currently not)
 ```
 
