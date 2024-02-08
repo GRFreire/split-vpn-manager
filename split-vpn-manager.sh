@@ -112,6 +112,7 @@ up_netns() {
 
     ip netns exec "$netns_name" ip route add default via "$route_vpn_gateway"
 
+    # TODO: change this temporary nameserver
     echo "nameserver 8.8.8.8" | resolvconf -x -a "$1.inet"
 
     exit $EXIT_SUCCESS
